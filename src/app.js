@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const dbConnect = require("./config/mongo");
 
 const PORT = process.env.PORT || 3002;
 
@@ -14,3 +15,5 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`Listening in port...${PORT}`);
 });
+
+dbConnect();
