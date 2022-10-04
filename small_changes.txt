@@ -1,0 +1,1 @@
+Remember to change .env DB_URI to an specific database before ?retryWrites
