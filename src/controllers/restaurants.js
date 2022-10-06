@@ -15,3 +15,20 @@ exports.getAllByCuisine = async (req, res) => {
     res.status(404);
   }
 };
+
+exports.getAllGrades = async (req, res) => {
+  try {
+    var letter = req.params.letter;
+    var mark = req.params.mark;
+
+    if (letter === undefined && mark !== undefined) {
+      res.status(200).json(await services.getGrade(mark));
+    } else if (letter !== undefined && mark === undefined) {
+      res.status(200).json(await services.getGrade(letter));
+    } else {
+      res.status(200).json(await services.getGrade());
+    }
+  } catch (error) {
+    res.status(404);
+  }
+};
