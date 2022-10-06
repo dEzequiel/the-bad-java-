@@ -5,10 +5,22 @@ const getAll = async () => {
   return restaurants;
 };
 
-const getCuisine = async (cuicineType) => {
+exports.getCuisine = async (cuicineType) => {
   const restaurants = await Restaurant.find({ cuisine: cuicineType });
   return restaurants;
 };
 
-exports.getAll = getAll;
-exports.getCuisine = getCuisine;
+exports.getCity = async (cityName) => {
+  const restaurants = await Restaurant.find({ borough: cityName });
+  return restaurants;
+};
+
+exports.getGrade = async (grade) => {
+  const restaurants = await Restaurant.find();
+};
+
+/**
+ * Por ciudad /city
+ * Por nota /grade /letra /puntuacion rango 1...5 /grade/:letter   /grade/:mark
+ */
+// exports.getCuisine = getCuisine;
